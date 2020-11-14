@@ -1,6 +1,3 @@
-<%if !current_user.nil?%>
-  <%= current_user.username %>
-<% end %>
 <h1>Store Name</h1>
 <%= link_to 'Add a Product', new_item_path %>
   <div>
@@ -11,7 +8,10 @@
       <%= item.description %> <br>
       <%= item.price %> <br> 
       <%= link_to "See", item %>
-      <%= link_to "Edit", edit_item_path(item) %>
-      <%= link_to "Remove", item, method: :delete, data: { confirm: "Are you sure you want to delete this item?" } %>  <br>
+      <% if current_user.username == item.user.username %>
+        <%= link_to "Edit", edit_item_path(item) %>
+        <%= link_to "Remove", item, method: :delete, data: { confirm: "Are you sure you want to delete this item?" } %>  <br>
+      <% end %>
+      
     <% end %>
   </div>
