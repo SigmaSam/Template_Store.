@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :logged_in?, except: %i[index show]
 
   def index
     @items = Item.all

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @user.save
       redirect_to root_path notice: 'Welcome!'
     else
-      redirect :new
+      redirect_to :new
     end
   end
 

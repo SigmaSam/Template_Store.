@@ -1,10 +1,13 @@
+<%if !current_user.nil?%>
+  <%= current_user.username %>
+<% end %>
 <h1>Store Name</h1>
 <%= link_to 'Add a Product', new_item_path %>
   <div>
     <% @items.each do |item| %>
       <%= image_tag(item.image_url) %> <br>
       <%= item.name %> <br>
-      <%= item.owner %> <br>
+      <%=  item.user.username %> <br>
       <%= item.description %> <br>
       <%= item.price %> <br> 
       <%= link_to "See", item %>
