@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users, only: %i[create show]
   resources :items
+
+  get "/sign_up", to: "users#new"
+  get "/log_in", to: "sessions#new"
+  post "/sessions", to: "sessions#create"
+  delete "/sessions", to: "sessions#destroy"
 
   root "items#index"
 end

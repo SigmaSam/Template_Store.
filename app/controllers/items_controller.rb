@@ -5,12 +5,14 @@ class ItemsController < ApplicationController
   end
   
   def new
-    @item = Item.new
+    @item = current_user.items.build
   end
 
   def create
-    @item = Item.new(items_params)
-    if item.save
+    @item = current_user.items.build(items_params)
+
+
+    if @item.save
       redirect_to root_path, notice: 'Item was Add to the Store.'
     else
       render :new
@@ -43,8 +45,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def book_params
-    params.require(:item).permit(:name, :owner, :description, :image_url, :publication_date, :price)
+  def items_params
+    params.require(:item).permit(:name, :description, :image_url, :publication_date, :price)
   end
 
 end

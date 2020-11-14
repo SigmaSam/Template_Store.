@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <% if logged_in? %>
+      <%= button_to "Logout", sessions_path, method: :delete %>
+    <% else %>
+      <%= button_to "Login Page", log_in_path, method: :get %>
+    <% end %>
+ 
     <%= yield %>
   </body>
 </html>
