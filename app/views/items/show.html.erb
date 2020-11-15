@@ -5,3 +5,8 @@
 <div>Descripción: <%= @item.description %></div>
 <div>Fecha de publicación: <%= @item.publication_date %></div>
 <div>Precio: <%= @item.price %></div>
+<% if !current_user.nil? && (@item.user.username == current_user.username)   %>
+  <%= link_to "Edit", edit_item_path(@item) %>
+  <%= link_to "Remove", @item, method: :delete, data: { confirm: "Are you sure you want to delete this item?" } %>  <br>
+<% end %>
+

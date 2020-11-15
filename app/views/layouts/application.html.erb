@@ -15,7 +15,7 @@
         <%= msg %>
       </div>
     <% end %>
-
+    <%= button_to 'Home', root_path, method: :get %>
     <% if logged_in? %>
       <%= button_to "Logout", sessions_path, method: :delete %>
     <% else %>
