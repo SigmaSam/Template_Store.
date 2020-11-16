@@ -1,0 +1,16 @@
+<h1>Category</h1>
+<div><%= @category.name %></div>
+<div><%= @category.description %></div>
+
+<h2>Items from this category</h2>
+
+<div> <% @category.items.each do |f| %> 
+  <div>
+    <%= image_tag(f.image_url) %> <br>
+    <%= f.name %> <br>
+    <%= f.description %> <br>
+    <%= f.price %> <br> 
+    <%= link_to "See", f %> <br>
+  </div>
+<% end %>
+</div>

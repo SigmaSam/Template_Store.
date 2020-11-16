@@ -7,6 +7,11 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+
+  <div>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Please select a Category'}) %>
+  </div>
+
   <div>
     <%= f.label :image_url %>
     <%= f.text_field :image_url %>

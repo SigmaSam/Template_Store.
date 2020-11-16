@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @categories = Category.all
   end
   
   def new
@@ -10,9 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @item = current_user.items.build(items_params)
-
-
+    
     if @item.save
       redirect_to root_path, notice: 'Item was Add to the Store.'
     else
@@ -39,7 +40,7 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    book.destroy
+    item.destroy
     
     redirect_to root_path, notice: 'The item was removed from the Store.'
   end
@@ -47,7 +48,7 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:item).permit(:name, :description, :image_url, :publication_date, :price)
+    params.require(:item).permit(:name, :description, :image_url, :publication_date, :price, :category_id)
   end
 
 end

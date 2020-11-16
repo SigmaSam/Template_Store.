@@ -1,15 +1,20 @@
 <h1>Store Name</h1>
-<% if !current_user.nil? %>
-  <%= link_to 'Add a Product', new_item_path %>
+
+<% @categories.each do |cat| %>
+  <%= link_to cat.name, cat %>
 <% end %>
+
+<% if !current_user.nil? %>
+  <% link_to 'Add a Product', new_item_path %> 
+<% end %> <br>
 
   <div>
     <% @items.each do |item| %>
       <%= image_tag(item.image_url) %> <br>
       <%= item.name %> <br>
-      <%=  item.user.username %> <br>
+      <%= item.user.username %> <br>
       <%= item.description %> <br>
       <%= item.price %> <br> 
-      <%= link_to "See", item %>
+      <%= link_to "See", item %> <br>
     <% end %>
   </div>
