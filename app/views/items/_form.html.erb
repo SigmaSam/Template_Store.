@@ -9,7 +9,8 @@
   </div>
 
   <div>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Please select a Category'}) %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Please select a Category'}) %> <br>
+    <p> Or   <%= link_to 'Create a New Category',new_category_path %> </p>
   </div>
 
   <div>

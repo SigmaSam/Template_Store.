@@ -2,10 +2,12 @@
 
 <% @categories.each do |cat| %>
   <%= link_to cat.name, cat %>
-<% end %>
+<% end %> <br>
+
 
 <% if !current_user.nil? %>
-  <% link_to 'Add a Product', new_item_path %> 
+  <%= link_to 'Add a Product', new_item_path %> 
+  <%= link_to 'Create a New Category',new_category_path %>
 <% end %> <br>
 
   <div>
