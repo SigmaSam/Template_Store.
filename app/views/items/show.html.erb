@@ -1,5 +1,5 @@
 <h1>Details of the Item</h1>
-<div> <%=image_tag(@item.image_url) %> </div>
+<div> <%=image_tag(@item.image_url,class: 'item-image') %> </div>
 <div><%= @item.name %></div>
 <div>Owner: <%= @item.user.username %></div>
 <div>Descripción: <%= @item.description %></div>

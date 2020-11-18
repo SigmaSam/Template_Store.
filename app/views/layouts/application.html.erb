@@ -9,20 +9,31 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class=''>
     <% flash.each do |type, msg| %>
       <div>
         <%= msg %>
       </div>
     <% end %>
-    <%= button_to 'Home', root_path, method: :get %>
-    <% if logged_in? %>
-      <%= button_to "Logout", sessions_path, method: :delete %>
-    <% else %>
-      <%= button_to "Login", log_in_path, method: :get %>
-      <%= button_to "Sign Up", sign_up_path, method: :get %>
-    <% end %>
-
-    <%= yield %>
+    <div class="menu">
+      <nav>
+      <ul>
+        <li> <a href="#"><%= link_to 'Home', root_path, method: :get %> </a> </li>
+        <% if logged_in? %>
+        <li> <a href="#"> <%= link_to "Logout", sessions_path, method: :delete %> </a> </li>
+          
+        <% else %>
+        <li> <a href="" ><%= link_to "Login", log_in_path, method: :get %></a> </li>
+        <li> <a href=""> <%= link_to "Sign Up", sign_up_path, method: :get %> </a> </li>
+          
+        <% end %>
+      </ul>
+      </nav>
+    </div>
+  <div class= 'container'>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>

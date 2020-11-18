@@ -12,11 +12,11 @@
 
   <div>
     <% @items.each do |item| %>
-      <%= image_tag(item.image_url) %> <br>
-      <%= item.name %> <br>
-      <%= item.user.username %> <br>
-      <%= item.description %> <br>
-      <%= item.price %> <br> 
+      <%= image_tag(item.image_url, class: 'item-image') %> <br>
+      <p class="text-lines"><%= item.name %></p>
+      <p class="text-lines"><%= item.user.username %></p>
+      <p class="text-lines"><%= item.description %></p>
+      <p class="text-lines"><%= item.price %></p>
       <%= link_to "See", item %> <br>
     <% end %>
   </div>
